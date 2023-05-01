@@ -1,0 +1,60 @@
+# Loon 最小配置
+# Date: 2023.04.30
+# Author: https://t.me/iKeLee
+
+[General]
+ipv6 = true
+dns-server = 8.8.8.8,119.29.29.29,114.114.114.114,208.67.222.222
+disable-udp-ports = 443
+allow-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+proxy-test-url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204
+geoip-url = HTTPS://GITLAB.COM/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb
+test-timeout = 2
+interface-mode = auto
+switch-node-after-failure-times = 3
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, LOCALHOST, *.LOCAL, CAPTIVE.APPLE.COM, E.CRASHLYNATICS.COM
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 239.255.255.250/32, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+次元雲☁️魔法门 = HTTPS://SUO.YT/SSSRaBN,udp=true,fast-open=true,vmess-aead=true,enabled=true
+[Remote Filter]
+游戏节点 = NameRegex, FilterKey = "^(?=.*((?i)游戏|(\b(GAME)\b)))(?!.*((?i)回国|校园|(\b(GAME)\b))).*$"
+全球节点 = NameRegex, FilterKey = "^(?=.*(.*))(?!.*((?i)回国|校园|教育|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|到期|过期|已用|联系|邮箱|工单|群|(\b(GAME|USE|USED|TOTAL|EXPIRE|EMAIL)\b))).*$"
+香港节点 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$"
+台湾节点 = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$"
+日本节点 = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$"
+韩国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$"
+新国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$"
+美国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|游戏|(\b(GAME)\b))).*$"
+
+[Proxy Group]
+# 延时优选策略组
+香港 = url-test, 香港节点, url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204, interval = 60, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
+台湾 = url-test, 台湾节点, url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204, interval = 60, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Taiwan.png
+日本 = url-test, 日本节点, url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204, interval = 60, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
+韩国 = url-test, 韩国节点, url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204, interval = 60, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/South_Korea.png
+美国 = url-test, 美国节点, url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204, interval = 60, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
+新国 = url-test, 新国节点, url = HTTP://CP.CLOUDFLARE.COM/GENERATE_204, interval = 60, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
+# --------------------------------
+# 手动策略组
+游戏手动 = select, 游戏节点, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Steam.png
+全球手动 = select, 全球节点, img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/StreamingSE.png
+
+[Rule]
+GEOIP, cn, DIRECT
+FINAL, 香港
+[Remote Rule]
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+
+[Mitm]
